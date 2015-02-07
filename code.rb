@@ -28,6 +28,7 @@ def reverse_list(list)
 end
 
 
+
 class Stack
   attr_reader :data
 
@@ -57,7 +58,9 @@ class Stack
   # Remove the last item that was pushed onto the
   # stack and return it to the user
   def pop
-    
+    temp = @data
+    @data = @data.next_node
+    temp
   end
 
 end
