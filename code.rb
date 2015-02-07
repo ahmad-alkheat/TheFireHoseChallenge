@@ -27,6 +27,19 @@ def reverse_list(list)
   stack.data
 end
 
+def reverse_list_recursive(list, previous=nil)
+  return previous unless list
+  if previous
+    temp = list.next_node
+    list.next_node = previous
+    reverse_list_recursive(temp, list)
+  else
+    temp = list.next_node
+    list.next_node = nil
+    reverse_list_recursive(temp, list)
+  end
+end
+
 
 
 class Stack
@@ -74,7 +87,7 @@ print_values(node3)
 
 puts "-------"
 
-revlist = reverse_list(node3)
+revlist = reverse_list_recursive(node3)
 
 print_values(revlist)
 
