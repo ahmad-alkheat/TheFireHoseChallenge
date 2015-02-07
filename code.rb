@@ -54,20 +54,20 @@ class Stack
 
   # Push an item onto the stack
   def push(element)
-      if @data == nil 
-        #if @data is empty, then push a new node with the
-        #element value and make it point to nil because it will be the
-        #last node
-        temp = LinkedListNode.new(element.value, nil) 
-        @data = temp
-      else
-        #otherwise push a new node but make it point to the
-        #last pushed node which is @data
-        temp = @data
-        temp2 = LinkedListNode.new(element.value, temp)
-        #make @data equal to the last pushed node
-        @data = temp2
-      end
+    if @data == nil 
+      #if @data is empty, then push a new node with the
+      #element value and make it point to nil because it will be the
+      #last node
+      temp = LinkedListNode.new(element.value, nil) 
+      @data = temp
+    else
+      #otherwise push a new node but make it point to the
+      #last pushed node which is @data
+      temp = @data
+      temp2 = LinkedListNode.new(element.value, temp)
+      #make @data equal to the last pushed node
+      @data = temp2
+    end
   end
 
   # Pop an item off the stack.  
