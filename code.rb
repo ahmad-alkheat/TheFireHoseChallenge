@@ -51,15 +51,12 @@ class Stack
       #if @data is empty, then push a new node with the
       #element value and make it point to nil because it will be the
       #last node
-      temp = LinkedListNode.new(element.value, nil) 
-      @data = temp
+      @data= LinkedListNode.new(element.value, nil) 
+      
     else
       #otherwise push a new node but make it point to the
       #last pushed node which is @data
-      temp = @data
-      temp2 = LinkedListNode.new(element.value, temp)
-      #make @data equal to the last pushed node
-      @data = temp2
+      @data = LinkedListNode.new(element.value, @data)
     end
   end
 
@@ -83,8 +80,14 @@ print_values(node3)
 
 puts "-------"
 
-revlist = reverse_list_recursive(node3)
+revlist = reverse_list(node3)
 
 print_values(revlist)
+
+puts "--------"
+
+revlist2 = reverse_list_recursive(node3)
+
+print_values(revlist2)
 
 
