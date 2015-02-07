@@ -28,18 +28,21 @@ def reverse_list(list)
 end
 
 def reverse_list_recursive(list, previous=nil)
+  # if the list is empty -reached end of list- then return the previous
+  # node that was changed in the last step
   return previous unless list
-  if previous
-    temp = list.next_node
-    list.next_node = previous
-    reverse_list_recursive(temp, list)
+
+  if previous # if not the first node
+    temp = list.next_node #save the next_node so that we can use it later
+    list.next_node = previous #redirect the pointer to previous
+    reverse_list_recursive(temp, list) # recurse 
   else
+    # this case is for the first node only
     temp = list.next_node
     list.next_node = nil
     reverse_list_recursive(temp, list)
   end
 end
-
 
 
 class Stack
